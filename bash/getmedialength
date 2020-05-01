@@ -1,0 +1,16 @@
+
+#i/bin/bash
+
+i=0
+
+for out in $(find `pwd` -name *.$1)
+do
+ i=$(($i + $(mediainfo --Inform="Video;%Duration%"  $out) )); 
+done
+
+echo "scale=4; $i/3600000" | bc
+
+# this script all you to display cumulative size of all the media of the same type in a particular directory
+# install mediainfo
+# give executable permissions
+# move to /usr/bin

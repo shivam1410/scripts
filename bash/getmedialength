@@ -1,16 +1,34 @@
+  GNU nano 4.3                                                                         /usr/bin/getmedialength                                                                                   
 
-#i/bin/bash
+#!/bin/bash
 
 i=0
 
-for out in $(find `pwd` -name *.$1)
+OIFS="$IFS"
+IFS=$'\n'
+for file in `find . -type f -name "*.$1"`
 do
- i=$(($i + $(mediainfo --Inform="Video;%Duration%"  $out) )); 
+        f="$file"
+        i=$(($i+`mediainfo --Inform="Video;%Duration%"  "$f"` ));
+        echo   "$file :" $i
 done
+IFS="$OIFS"
 
-echo "scale=4; $i/3600000" | bc
+printf ".\n.\n.\n.\n.\n."
+
+printf "Total: "
+t=$(($i/1000))
+h=$(($t/3600))
+m=$(($(($i%3600))/60))
+s=$(($(($i%3600))%60))
+echo $h "Hrs." $m "Min." $s "Sec." of $1 "data is in this directory"
+
+
+
 
 # this script all you to display cumulative size of all the media of the same type in a particular directory
 # install mediainfo
 # give executable permissions
 # move to /usr/bin
+# avoid using pipeline, it messes with the global shell
+# $ getmedialength mp4

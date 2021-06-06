@@ -1,17 +1,17 @@
-var client_id = "<client_id>";
-var client_secret = "<client_secret>";
-var redirect_uri =  `<redirect_url>`;
+var client_id = "FIT_TRACKER_CLIENT_ID";
+var client_secret = "FIT_TRACKER_CLIENT_SECRET";
+var redirect_uri =  `FIT_TRACKER_REDIRECT_URI`;
 const Token_url = "https://oauth2.googleapis.com/token";
 var Auth_URL = "https://accounts.google.com/o/oauth2/auth";
 var Scope = ["https://www.googleapis.com/auth/fitness.activity.read","https://www.googleapis.com/auth/fitness.sleep.write",
 "https://www.googleapis.com/auth/calendar","https://www.googleapis.com/auth/calendar.events"];
 
-var code="<code>"
+var code = "FIT_TRACKER_CODE"
 
 var Token_object = {
   "expires_in": 3599.0, 
   "token_type": "Bearer", 
-  "refresh_token": "<refresh_token>", 
+  "refresh_token":  REFRESH_TOKEN
   "scope": ["https://www.googleapis.com/auth/fitness.activity.read","https://www.googleapis.com/auth/fitness.sleep.write","https://www.googleapis.com/auth/calendar","https://www.googleapis.com/auth/calendar.events"]
 }
 

@@ -1,16 +1,14 @@
-  GNU nano 4.3                                                                         /usr/bin/getmedialength                                                                                   
 
 #!/bin/bash
 
 i=0
-
 OIFS="$IFS"
 IFS=$'\n'
 for file in `find . -type f -name "*.$1"`
 do
-        f="$file"
-        i=$(($i+`mediainfo --Inform="Video;%Duration%"  "$f"` ));
-        echo   "$file :" $i
+  f="$file"
+  i=$(($i+`mediainfo --Inform="Video;%Duration%"  "$f"` ));
+  echo   "$file :" $i
 done
 IFS="$OIFS"
 
@@ -22,8 +20,6 @@ h=$(($t/3600))
 m=$(($(($i%3600))/60))
 s=$(($(($i%3600))%60))
 echo $h "Hrs." $m "Min." $s "Sec." of $1 "data is in this directory"
-
-
 
 
 # this script all you to display cumulative size of all the media of the same type in a particular directory

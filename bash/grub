@@ -3,11 +3,11 @@
 # /boot/grub/grub.cfg.
 # For full documentation of the options in this file, see:
 #   info -f grub -n 'Simple configuration'
-GRUB_DEFAULT=0
+GRUB_DEFAULT=saved
 GRUB_SAVEDEFAULT=true
-GRUB_TIMEOUT=0
 GRUB_HIDDEN_TIMEOUT=0
 GRUB_HIDDEN_TIMEOUT_QUIET=true
+GRUB_TIMEOUT=0
 # TO AVOID SCANNING FOR OTHER OS'S BOOTLOADER
 GRUB_DISABLE_OS_PROBER=true
 GRUB_TIMEOUT_STYLE=hidden
